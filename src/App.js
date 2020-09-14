@@ -23,6 +23,9 @@ const ControlBarContainer = styled.div`
 
 const MapContainer = styled.div`
   flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 `;
 
 ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_CODE);

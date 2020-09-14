@@ -97,8 +97,7 @@ const Map = (props) => {
     <MapBox
       style="mapbox://styles/mapbox/streets-v11"
       containerStyle={{
-        height: "100%",
-        width: "100%",
+        flex: 1,
       }}
       movingMethod="flyTo" // ensures the map animates on location change
       {...mapFocusProps}
