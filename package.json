@@ -6,9 +6,17 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@turf/turf": "^5.1.6",
+    "babel-plugin-styled-components": "^1.11.1",
+    "google-maps-react": "^2.0.6",
+    "mapbox-gl": "^1.12.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-ga": "^3.1.2",
+    "react-google-places-autocomplete": "^3.0.0-alpha.1",
+    "react-mapbox-gl": "^4.8.6",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
