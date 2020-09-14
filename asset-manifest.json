@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/covid-5k-overlap-finder/static/css/main.870c82aa.chunk.css",
+    "main.js": "/covid-5k-overlap-finder/static/js/main.c7868618.chunk.js",
+    "main.js.map": "/covid-5k-overlap-finder/static/js/main.c7868618.chunk.js.map",
+    "runtime-main.js": "/covid-5k-overlap-finder/static/js/runtime-main.42d4d82c.js",
+    "runtime-main.js.map": "/covid-5k-overlap-finder/static/js/runtime-main.42d4d82c.js.map",
+    "static/css/2.b4a16772.chunk.css": "/covid-5k-overlap-finder/static/css/2.b4a16772.chunk.css",
+    "static/js/2.246cd33a.chunk.js": "/covid-5k-overlap-finder/static/js/2.246cd33a.chunk.js",
+    "static/js/2.246cd33a.chunk.js.map": "/covid-5k-overlap-finder/static/js/2.246cd33a.chunk.js.map",
+    "index.html": "/covid-5k-overlap-finder/index.html",
+    "precache-manifest.0ce99fbc232c8e1b5e59d37917027c78.js": "/covid-5k-overlap-finder/precache-manifest.0ce99fbc232c8e1b5e59d37917027c78.js",
+    "service-worker.js": "/covid-5k-overlap-finder/service-worker.js",
+    "static/css/2.b4a16772.chunk.css.map": "/covid-5k-overlap-finder/static/css/2.b4a16772.chunk.css.map",
+    "static/css/main.870c82aa.chunk.css.map": "/covid-5k-overlap-finder/static/css/main.870c82aa.chunk.css.map",
+    "static/js/2.246cd33a.chunk.js.LICENSE.txt": "/covid-5k-overlap-finder/static/js/2.246cd33a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.42d4d82c.js",
+    "static/css/2.b4a16772.chunk.css",
+    "static/js/2.246cd33a.chunk.js",
+    "static/css/main.870c82aa.chunk.css",
+    "static/js/main.c7868618.chunk.js"
+  ]
+}
