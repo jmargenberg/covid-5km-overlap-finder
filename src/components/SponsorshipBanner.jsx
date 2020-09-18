@@ -89,7 +89,7 @@ const SponsorshipBanner = () => {
         </ExplanationParagraph>
         <ExplanationParagraph>
           I'd be delighted if a brand, be it a news site, cultural site, digital brand or any business is interested in
-          adopting this site for full branding and/or redirection to a white-labeled version.
+          adopting this site for full branding and/or redirection to a white-labeled version hosted on your site.
         </ExplanationParagraph>
 
         <ExplanationParagraph>
