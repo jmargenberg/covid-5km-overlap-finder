@@ -6,6 +6,7 @@ import ReactGA from "react-ga";
 import SponsorshipBanner from "./components/SponsorshipBanner";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import env from "./env";
 
 const AppContainer = styled.div`
   height: 100vh;
@@ -35,7 +36,7 @@ const MapContainer = styled.div`
 library.add(faChevronDown, faChevronUp);
 
 // Initialise Google Analytics
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_CODE);
+ReactGA.initialize(env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_CODE);
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {

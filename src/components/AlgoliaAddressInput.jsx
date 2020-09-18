@@ -1,11 +1,11 @@
 import React from "react";
 import AlgoliaPlaces from "algolia-places-react";
-
+import env from "../env";
 import styled from "styled-components";
 
 const ALGOLIA_PLACES_OPTIONS = {
-  appId: process.env.REACT_APP_ALGOLIA_PLACES_APP_ID,
-  apiKey: process.env.REACT_APP_ALGOLIA_PLACES_API_KEY,
+  appId: env.REACT_APP_ALGOLIA_PLACES_APP_ID,
+  apiKey: env.REACT_APP_ALGOLIA_PLACES_API_KEY,
   language: "en",
   countries: ["au"],
   aroundLatLng: "-37.816204,144.957489", // Melbourne CBD

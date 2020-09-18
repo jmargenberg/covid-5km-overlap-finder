@@ -1,9 +1,10 @@
 import React from "react";
 import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
 import * as turf from "@turf/turf";
+import env from "../env";
 
 const MapBox = ReactMapboxGl({
-  accessToken: process.env.REACT_APP_MAPBOX_API_KEY,
+  accessToken: env.REACT_APP_MAPBOX_API_KEY,
 });
 
 const INITIAL_BOUNDS = [
