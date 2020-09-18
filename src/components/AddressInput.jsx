@@ -39,6 +39,7 @@ const AddressInput = (props) => {
           onChange: onPlaceSelected,
           placeholder,
         }}
+        debounce={900}
       />
     </AddressInputContainer>
   );
