@@ -1,5 +1,5 @@
 import React from "react";
-import AddressInput from "./AddressInput";
+import AlgoliaAddressInput from "./AlgoliaAddressInput";
 
 import styled from "styled-components";
 
@@ -17,8 +17,8 @@ const ControlBar = (props) => {
 
   return (
     <ControlBarContentsContainer>
-      <AddressInput onLocationSelected={myLocationSelected} placeholder="Where do you live?" />
-      <AddressInput onLocationSelected={theirLocationSelected} placeholder="Where do they live?" />
+      <AlgoliaAddressInput onLocationSelected={myLocationSelected} placeholder="Where do you live?" />
+      <AlgoliaAddressInput onLocationSelected={theirLocationSelected} placeholder="Where do they live?" />
     </ControlBarContentsContainer>
   );
 };
