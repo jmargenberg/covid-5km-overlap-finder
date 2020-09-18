@@ -43,20 +43,39 @@ function App() {
   const [myLocation, setMyLocation] = useState(undefined);
   const [theirLocation, setTheirLocation] = useState(undefined);
 
+  const onMyLocationSelected = (location) => {
+    setMyLocation(location);
+
+    if (location) {
+      ReactGA.event({
+        category: "Location Selections",
+        action: "'My' location set",
+      });
+    }
+  };
+
+  const onTheirLocationSelected = (location) => {
+    setTheirLocation(location);
+
+    if (location) {
+      ReactGA.event({
+        category: "Location Selections",
+        action: "'Their' location set",
+      });
+    }
+  };
+
   return (
     <AppContainer>
       <BannerContainer style={{ backgroundColor: "orange" }}>
         <SponsorshipBanner />
       </BannerContainer>
       <BannerContainer>
-        <ControlBar myLocationSelected={setMyLocation} theirLocationSelected={setTheirLocation} />
+        <ControlBar myLocationSelected={onMyLocationSelected} theirLocationSelected={onTheirLocationSelected} />
       </BannerContainer>
       <MapContainer>
         <Map myLocation={myLocation} theirLocation={theirLocation} />
       </MapContainer>
-      {/* <BannerContainer>
-        <DonateBanner />
-      </BannerContainer> */}
     </AppContainer>
   );
 }

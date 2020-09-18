@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
 import * as turf from "@turf/turf";
 import env from "../env";
+import ReactGA from "react-ga";
 
 const MapBox = ReactMapboxGl({
   accessToken: env.REACT_APP_MAPBOX_API_KEY,
@@ -93,6 +94,22 @@ const Map = (props) => {
       fitBounds: INITIAL_BOUNDS,
     };
   }
+
+  // Record some basic analytics on the overlap (if the areas overlap, the distance)
+  useEffect(() => {
+    if (!bothLocationsSet) return;
+
+    try {
+      const isOverlapping = sharedLockdownArea !== null;
+      const distanceKm = Math.abs(turf.distance(myLocation, theirLocation));
+
+      ReactGA.event({
+        category: "Location Overlaps",
+        action: isOverlapping ? "Locations overlapped" : "Locations didn't overlap",
+        value: distanceKm,
+      });
+    } catch {}
+  }, [myLocation, theirLocation]);
 
   return (
     <MapBox

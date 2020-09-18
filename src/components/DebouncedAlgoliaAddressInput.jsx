@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AsyncSelect from "react-select/async";
 import env from "../env";
 import algoliasearch from "algoliasearch";
 import debounce from "debounce-promise";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 
 // Initialise the Algolia Places API
 var places = algoliasearch.initPlaces(env.REACT_APP_ALGOLIA_PLACES_APP_ID, env.REACT_APP_ALGOLIA_PLACES_API_KEY);
@@ -32,8 +33,18 @@ const searchPlaces = (query) =>
       return;
     }
 
+    ReactGA.event({
+      category: "Debounced Algolia",
+      action: "Search API Called",
+    });
+
     places.search({ query, ...SEARCH_OPTIONS }, (err, res) => {
       if (err) {
+        ReactGA.event({
+          category: "Debounced Algolia",
+          action: "Search API Error Received",
+        });
+
         return reject(err);
       }
       resolve(res);
@@ -66,8 +77,10 @@ const placeToSuggestionString = (place) => {
 
 const DebouncedAlgoliaAddressInput = (props) => {
   const { onLocationSelected, placeholder } = props;
+  const [mostRecentInput, setMostRecentInput] = useState(""); // Tracked for analytics
 
   const loadOptions = async (input) => {
+    setMostRecentInput(input);
     const searchResponse = await debouncedSearchPlaces(input);
     return searchResponse?.hits?.map((place) => ({
       value: place,
@@ -81,9 +94,20 @@ const DebouncedAlgoliaAddressInput = (props) => {
       const location = [place?._geoloc?.lng, place?._geoloc?.lat];
 
       await onLocationSelected(location);
+
+      ReactGA.event({
+        category: "Debounced Algolia",
+        action: "Suggestion selected",
+        value: mostRecentInput?.length,
+      });
     } else {
       await onLocationSelected(undefined);
+      ReactGA.event({
+        category: "Debounced Algolia",
+        action: "Suggestion cleared",
+      });
     }
+    setMostRecentInput("");
   };
 
   return (
