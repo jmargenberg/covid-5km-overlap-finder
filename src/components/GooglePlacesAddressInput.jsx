@@ -15,7 +15,7 @@ const AddressInputContainer = styled.div`
   margin: 5px;
 `;
 
-const AddressInput = (props) => {
+const GooglePlacesAdressInput = (props) => {
   const { onLocationSelected, placeholder } = props;
 
   const onPlaceSelected = async (place) => {
@@ -45,4 +45,4 @@ const AddressInput = (props) => {
   );
 };
 
-export default AddressInput;
+export default GooglePlacesAdressInput;
