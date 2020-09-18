@@ -118,6 +118,7 @@ const DebouncedAlgoliaAddressInput = (props) => {
         loadOptions={loadOptions}
         onChange={onSuggestionSelected}
         isClearable={true}
+        components={{ IndicatorSeparator: null, DropdownIndicator: null }}
       />
     </InputContainer>
   );
