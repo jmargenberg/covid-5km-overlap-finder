@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/covid-5km-overlap-finder/precache-manifest.44d05ea09c2ceb81dfe99c655e03fc93.js"
+  "/covid-5km-overlap-finder/precache-manifest.7c564e126277b40c2e879b1f1ebacbd9.js"
 );
 
 self.addEventListener('message', (event) => {
