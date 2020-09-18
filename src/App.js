@@ -3,7 +3,7 @@ import Map from "./components/Map";
 import styled from "styled-components";
 import ControlBar from "./components/ControlBar";
 import ReactGA from "react-ga";
-import DonateBanner from "./components/DonateBanner";
+import SponsorshipBanner from "./components/SponsorshipBanner";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -44,15 +44,18 @@ function App() {
 
   return (
     <AppContainer>
+      <BannerContainer style={{ backgroundColor: "orange" }}>
+        <SponsorshipBanner />
+      </BannerContainer>
       <BannerContainer>
         <ControlBar myLocationSelected={setMyLocation} theirLocationSelected={setTheirLocation} />
       </BannerContainer>
       <MapContainer>
         <Map myLocation={myLocation} theirLocation={theirLocation} />
       </MapContainer>
-      <BannerContainer>
+      {/* <BannerContainer>
         <DonateBanner />
-      </BannerContainer>
+      </BannerContainer> */}
     </AppContainer>
   );
 }

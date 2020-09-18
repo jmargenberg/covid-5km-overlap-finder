@@ -58,7 +58,6 @@ const ExpandChevronContainer = styled.div`
 const ExplanationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  overflow: scroll;
 
   margin-left: 40px;
   margin-right: 40px;
