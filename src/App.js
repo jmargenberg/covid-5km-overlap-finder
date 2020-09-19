@@ -67,9 +67,6 @@ function App() {
 
   return (
     <AppContainer>
-      <BannerContainer style={{ backgroundColor: "orange" }}>
-        <SponsorshipBanner />
-      </BannerContainer>
       <BannerContainer>
         <ControlBar myLocationSelected={onMyLocationSelected} theirLocationSelected={onTheirLocationSelected} />
       </BannerContainer>
