@@ -3,7 +3,7 @@ import Map from "./components/Map";
 import styled from "styled-components";
 import ControlBar from "./components/ControlBar";
 import ReactGA from "react-ga";
-import SponsorshipBanner from "./components/SponsorshipBanner";
+import BubbleBanner from "./components/BubbleBanner";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import env from "./env";
@@ -67,6 +67,9 @@ function App() {
 
   return (
     <AppContainer>
+      <BannerContainer>
+        <BubbleBanner />
+      </BannerContainer>
       <BannerContainer>
         <ControlBar myLocationSelected={onMyLocationSelected} theirLocationSelected={onTheirLocationSelected} />
       </BannerContainer>
