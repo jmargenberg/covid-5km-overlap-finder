@@ -1,11 +1,6 @@
-import React, { useState } from "react";
-import Map from "./components/Map";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ControlBar from "./components/ControlBar";
 import ReactGA from "react-ga";
-import BubbleBanner from "./components/BubbleBanner";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import env from "./env";
 
 const AppContainer = styled.div`
@@ -15,67 +10,39 @@ const AppContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-`;
-
-const BannerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
+  overflow-y: scroll;
+  background-color: #1adddb;
 `;
 
-const MapContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-`;
-
-// Initialise Fontawesome
-library.add(faChevronDown, faChevronUp);
+const RedirectionLabel = styled.h1``;
 
 // Initialise Google Analytics
 ReactGA.initialize(env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_CODE);
 ReactGA.pageview(window.location.pathname + window.location.search);
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function App() {
-  const [myLocation, setMyLocation] = useState(undefined);
-  const [theirLocation, setTheirLocation] = useState(undefined);
-
-  const onMyLocationSelected = (location) => {
-    setMyLocation(location);
-
-    if (location) {
+  useEffect(() => {
+    (async () => {
       ReactGA.event({
-        category: "Location Selections",
-        action: "'My' location set",
+        category: "Redirect",
+        action: "Redirect from overlap finder",
       });
-    }
-  };
 
-  const onTheirLocationSelected = (location) => {
-    setTheirLocation(location);
+      await sleep(150);
 
-    if (location) {
-      ReactGA.event({
-        category: "Location Selections",
-        action: "'Their' location set",
-      });
-    }
-  };
+      window.location = "https://thebubble.in/";
+    })();
+  }, []);
 
   return (
     <AppContainer>
-      <BannerContainer>
-        <BubbleBanner />
-      </BannerContainer>
-      <BannerContainer>
-        <ControlBar myLocationSelected={onMyLocationSelected} theirLocationSelected={onTheirLocationSelected} />
-      </BannerContainer>
-      <MapContainer>
-        <Map myLocation={myLocation} theirLocation={theirLocation} />
-      </MapContainer>
+      <RedirectionLabel>Redirecting....</RedirectionLabel>
     </AppContainer>
   );
 }

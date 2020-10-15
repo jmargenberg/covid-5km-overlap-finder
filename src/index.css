@@ -6,6 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
+  background-color: #1adddb;
 }
 body > #root > div {
   height: 100vh;
