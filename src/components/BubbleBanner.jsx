@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import banner from "../images/bubble_banner_white.png";
 import ReactGA from "react-ga";
-import { isAndroid } from "react-device-detect";
 
 const BannerContainer = styled.div`
   display: flex;
@@ -28,12 +27,8 @@ const BubbleBanner = () => {
     setShowExplanation((currShowExplanation) => !currShowExplanation);
   };
 
-  const link = !isAndroid
-    ? "https://apps.apple.com/us/app/id1532683720"
-    : "https://play.google.com/store/apps/details?id=date.boop.bubble";
-
   return (
-    <ReactGA.OutboundLink eventLabel="bubbleLink" to={link}>
+    <ReactGA.OutboundLink eventLabel="bubbleLink" to="https://apps.apple.com/us/app/id1532683720">
       <BannerContainer>
         <BubbleImage src={banner} />
       </BannerContainer>
