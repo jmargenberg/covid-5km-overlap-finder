@@ -14,7 +14,6 @@ const INITIAL_BOUNDS = [
 ];
 const BOUNDS_PADDING_KM_ONE_LOCATION = 5;
 const BOUNDS_PADDING_KM_BOTH_LOCATIONS = 1;
-const COVID_LOCKDOWN_RADIUS_KM = 5;
 const COVID_LOCKDOWN_CIRCLE_OPTIONS = { steps: 1_000, units: "kilometers" };
 
 const MAP_BOX_STYLES = {
@@ -40,18 +39,17 @@ const MAP_BOX_STYLES = {
   },
 };
 
-const notFalsy = (foo) => foo;
+const notFalsy = foo => foo;
 
-const Map = (props) => {
-  const { myLocation, theirLocation } = props;
+const Map = props => {
+  const { myLocation, theirLocation, radiusKm } = props;
 
   const bothLocationsSet = myLocation !== undefined && theirLocation !== undefined;
   const oneLocationSet = (myLocation !== undefined || theirLocation !== undefined) && !bothLocationsSet;
 
   // Determine each users total lockdown area
-  const myLockdownArea = myLocation && turf.circle(myLocation, COVID_LOCKDOWN_RADIUS_KM, COVID_LOCKDOWN_CIRCLE_OPTIONS);
-  const theirLockdownArea =
-    theirLocation && turf.circle(theirLocation, COVID_LOCKDOWN_RADIUS_KM, COVID_LOCKDOWN_CIRCLE_OPTIONS);
+  const myLockdownArea = myLocation && turf.circle(myLocation, radiusKm, COVID_LOCKDOWN_CIRCLE_OPTIONS);
+  const theirLockdownArea = theirLocation && turf.circle(theirLocation, radiusKm, COVID_LOCKDOWN_CIRCLE_OPTIONS);
 
   // Determine the shared lockdown area (if any)
   const sharedLockdownArea = bothLocationsSet ? turf.intersect(myLockdownArea, theirLockdownArea) : undefined;
@@ -109,15 +107,16 @@ const Map = (props) => {
         value: distanceKm,
       });
     } catch {}
-  }, [myLocation, theirLocation]);
+  }, [myLocation, theirLocation, bothLocationsSet, sharedLockdownArea]);
 
   return (
     <MapBox
-      style="mapbox://styles/mapbox/streets-v11"
+      // eslint-disable-next-line
+      style='mapbox://styles/mapbox/streets-v11'
       containerStyle={{
         flex: 1,
       }}
-      movingMethod="flyTo" // ensures the map animates on location change
+      movingMethod='flyTo' // ensures the map animates on location change
       {...mapFocusProps}
     >
       <GeoJSONLayer

@@ -3,10 +3,10 @@ import Map from "./components/Map";
 import styled from "styled-components";
 import ControlBar from "./components/ControlBar";
 import ReactGA from "react-ga";
-import SponsorshipBanner from "./components/SponsorshipBanner";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import env from "./env";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const AppContainer = styled.div`
   height: 100vh;
@@ -43,7 +43,9 @@ function App() {
   const [myLocation, setMyLocation] = useState(undefined);
   const [theirLocation, setTheirLocation] = useState(undefined);
 
-  const onMyLocationSelected = (location) => {
+  const [radiusKm, setRadiusKm] = useState(env.REACT_APP_RADIUS_KM_DEFAULT);
+
+  const onMyLocationSelected = location => {
     setMyLocation(location);
 
     if (location) {
@@ -54,7 +56,7 @@ function App() {
     }
   };
 
-  const onTheirLocationSelected = (location) => {
+  const onTheirLocationSelected = location => {
     setTheirLocation(location);
 
     if (location) {
@@ -68,10 +70,15 @@ function App() {
   return (
     <AppContainer>
       <BannerContainer>
-        <ControlBar myLocationSelected={onMyLocationSelected} theirLocationSelected={onTheirLocationSelected} />
+        <ControlBar
+          myLocationSelected={onMyLocationSelected}
+          theirLocationSelected={onTheirLocationSelected}
+          radiusKm={radiusKm}
+          onSelectRadiusKm={setRadiusKm}
+        />
       </BannerContainer>
       <MapContainer>
-        <Map myLocation={myLocation} theirLocation={theirLocation} />
+        <Map myLocation={myLocation} theirLocation={theirLocation} radiusKm={radiusKm} />
       </MapContainer>
     </AppContainer>
   );

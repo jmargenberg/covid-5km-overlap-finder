@@ -1,0 +1,7 @@
+.dropdown-menu.radius-dropdown {
+  min-width: initial;
+}
+
+.dropdown-item.radius-dropdown__item {
+  color: #6c757d;
+}
