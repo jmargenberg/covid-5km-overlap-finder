@@ -9,6 +9,4 @@ const env = cleanEnv(process.env, {
   REACT_APP_RADIUS_KM_DEFAULT: num({ require: true, default: 5 }),
 });
 
-console.log({ env, foo: process.env.REACT_APP_RADIUS_KM_OPTIONS });
-
 export default env;
