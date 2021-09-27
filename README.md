@@ -10,6 +10,8 @@ See where you and your friends have an overlap in their 5km lockdown radius.
 - `REACT_APP_ALGOLIA_PLACES_APP_ID`
 - `REACT_APP_ALGOLIA_PLACES_API_KEY`
 - `REACT_APP_GOOGLE_ANALYTICS_TRACKING_CODE`
+- `REACT_APP_RADIUS_KM_OPTIONS`
+- `REACT_APP_RADIUS_KM_DEFAULT`
 
 **_If you are going to host this app publicly make sure you set API referrer restrictions and appropriate rate limits for each of these keys!_**
 
